@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from "./App.module.css";
-import { SignupPop } from './Signup_pop';
-import { LoginupPop } from './Login_pop';
 import LoginPost from './Login';
+import SignupPost from './Signup';
 
 export const Navbar = () => {
     return (
@@ -10,9 +9,9 @@ export const Navbar = () => {
             <header className={styles["main-header"]}>
                 <nav>
                     <ul>
-                        <SignupPop />
+                        <SignupPost />
                         <LoginPost />
-                        <button className={styles["auth-button"]}><a href=""></a>Admin</button>
+                        <button className={styles["auth-button"]}><a href=""></a>Meetups</button>
                         
                     </ul>
                 </nav>

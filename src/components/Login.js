@@ -4,46 +4,49 @@ import styles from "./App.module.css";
 import Popup from 'reactjs-popup' 
 
 class LoginPost extends Component {
-  constructor(props){
-    super(props);
-    this.state={ 
-      email:"",
-      password:""
-    };
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+	constructor(props){
+	super(props);
+	this.state={ 
+		email:"",
+		password:""
+	};
+	this.handleLogin = this.handleLogin.bind(this);
+	this.handleChange = this.handleChange.bind(this);
+	}
 
-  handleChange(event) {
-    this.setState({ [event.target.id]: event.target.name });
-  }
+	handleChange(event) {
+	this.setState({ [event.target.id]: event.target.name });
+	}
 
-    handleLogin() {
-        fetch('https://questioners-two-staging.herokuapp.com/api/auth/login/',{
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        })
-            .then(response => response.json())
-            .then(data => {
-              if ('token', data.token) {
-                localStorage.setItem('token', data.token)
-                let id_token = localStorage.getItem('token')
-                console.log(id_token)
-              } else {
-                window.alert(data.detail)
-              }
-            })
-        }
+	handleLogin() {
+		fetch('https://questioners-two-staging.herokuapp.com/api/auth/login/',{
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+	       },
+	})
+		.then(response => response.json())
+		.then(data => {
+			if (data.status === 201){
+				console.log(data);
+				} 
+		else {
+			window.alert(data.detail)
+			}
+		})
+		.catch(error =>{
+			if (error){
+				alert(error.detail)
+			}
+		} );
+		}
 
   render() {
     return (
 
       <Popup trigger={<button className={styles["auth-button"]}> Login </button>} modal>
         {close => (
-        <div className="modal">
-            <a className="close" onClick={close}> &times; </a>
+        <div className={styles["modal"]}>
             <div className="header">
                 Questioner Login
             </div>

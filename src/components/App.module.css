@@ -271,7 +271,7 @@ button.delete.btn { background: #F69; }
 /* ####################################### */
 /* User Registration page */
 /* Should be centered */
-.signup-box {
+.modal {
     position: relative;
     margin: 8% auto 5% auto;
     width: 250px;
