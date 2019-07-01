@@ -1,0 +1,31 @@
+.mytest {
+    color: rgb(0, 139, 53);
+}
+
+.testButton{
+    background: darkcyan;
+}
+.navigation{
+    height: 450px;
+}
+
+.link-item{
+    color: rgb(27, 116, 16);
+    font-style: normal;
+    font-weight: bold;
+}
+
+.card{
+    width: 400px;
+}
+
+h3 {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+.main {
+    display: flex;
+    margin-bottom: 25px;
+}
